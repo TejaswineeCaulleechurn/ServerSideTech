@@ -1,0 +1,162 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: December 09, 2021 at 05:39 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `MoneyManagerDB`
+--
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `tb_expenses`
+--
+
+CREATE TABLE `tb_expenses` (
+  `ID` int(10) NOT NULL,
+  `UserId` int(10) NOT NULL,
+  `ExpenseDate` date DEFAULT NULL,
+  `ExpenseItem` varchar(200) DEFAULT NULL,
+  `ExpenseCost` varchar(200) DEFAULT NULL,
+  `NoteDate` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_expenses`
+--
+
+INSERT INTO `tb_expenses` (`ID`, `UserId`, `ExpenseDate`, `ExpenseItem`, `ExpenseCost`, `NoteDate`) VALUES
+(55, 17, '2021-12-05', 'Rent', '15000', '2021-12-05 20:33:38'),
+(56, 17, '2021-12-05', 'Food', '2500', '2021-12-05 21:14:59');
+
+
+
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `tb_income`
+--
+
+CREATE TABLE `tb_income` (
+  `ID` int(10) NOT NULL,
+  `UserId` int(10) NOT NULL,
+  `IncomeDate` date DEFAULT NULL,
+  `IncomeDetails` varchar(200) DEFAULT NULL,
+  `IncomeAmount` varchar(200) DEFAULT NULL,
+  `NoteDate` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_income`
+--
+
+INSERT INTO `tb_income` (`ID`, `UserId`, `IncomeDate`, `IncomeDetails`, `IncomeAmount`, `NoteDate`) VALUES
+(40, 17, '2021-12-05', 'Salary', '25000', '2021-12-05 20:46:25');
+
+
+
+
+
+
+
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `tb_users`
+--
+
+CREATE TABLE `tb_users` (
+  `ID` int(10) NOT NULL,
+  `FullName` varchar(150) DEFAULT NULL,
+  `Email` varchar(200) DEFAULT NULL,
+  `MobileNumber` bigint(10) DEFAULT NULL,
+  `Password` varchar(200) DEFAULT NULL,
+  `RegDate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_users`
+--
+
+INSERT INTO `tb_users` (`ID`, `FullName`, `Email`, `MobileNumber`, `Password`, `RegDate`) VALUES
+(15, 'Test User', 'testuser@test.com', NULL, '12345', '2021-12-05 17:43:42'),
+(17, 'Tejaswinee Luxmee', 'tejaswineeluxmee@gmail.com', 57761524, '123', '2021-12-05 20:20:26');
+
+
+
+
+
+
+
+---------------------------------------------------------------------
+
+
+--
+-- Indexes for table `TB_Expenses`
+--
+ALTER TABLE `TB_Expenses`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tb_income`
+--
+ALTER TABLE `tb_Income`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `TB_Users`
+--
+ALTER TABLE `tb_users`
+  ADD PRIMARY KEY (`ID`);
+
+
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tb_expenses`
+--
+ALTER TABLE `tb_expenses`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `tb_income`
+--
+ALTER TABLE `tb_income`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `tb_users`
+--
+ALTER TABLE `tb_users`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+COMMIT;
+
+
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
